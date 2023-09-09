@@ -1,0 +1,9 @@
+$searchWord = sans
+
+Foreach ($sw in $searchWords)
+
+{ 
+	Get-Children -Path "c:\" -Recursive -include "*.txt", "*.csv" |
+	Select-String -Pattern "$sw" |
+	Select Path, LineNumber, @{n='SearchWored' ; e={$SW}}
+}
